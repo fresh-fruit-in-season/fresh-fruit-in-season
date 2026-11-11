@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f0e6">
+<title>鮮果食季｜跟著季節，吃當季的水果</title>
+<meta name="description" content="鮮果食季，自家果園當季水果與產季公告。">
+<style>
+:root{--cream:#f5f0e6;--paper:#fffdf8;--green:#314b35;--olive:#78815a;--orange:#d99b35;--ink:#263127;--muted:#6e7568;--line:#ddd8ca}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(245,240,230,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(49,75,53,.12)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-family:serif;font-size:25px;letter-spacing:.12em;color:var(--green);white-space:nowrap}.brand small{display:block;font-family:Arial,sans-serif;font-size:9px;letter-spacing:.28em;margin-top:-5px;color:var(--muted)}
+nav{display:flex;gap:24px;font-size:14px;color:var(--green)}nav a:hover{color:#b47c20}
+.hero{padding:42px 0 64px}.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:38px;align-items:center}.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--olive);font-weight:700}
+h1{font-family:serif;font-weight:400;font-size:clamp(36px,4.5vw,60px);line-height:1.12;letter-spacing:.08em;color:var(--green);margin:18px 0}.hero p{color:var(--muted);max-width:420px;margin:0 0 28px}
+.button{display:inline-flex;align-items:center;justify-content:center;background:var(--green);color:white;padding:13px 23px;border:0;border-radius:2px;font-size:14px;letter-spacing:.08em;cursor:pointer}.button:hover{background:#49664d}
+.hero-image{position:relative}.hero-image img{width:100%;height:450px;object-fit:cover;display:block;border-radius:48% 48% 3px 3px}.image-note{position:absolute;right:-12px;bottom:20px;background:var(--orange);color:#fffdf8;padding:15px 20px;font-family:serif;letter-spacing:.15em;font-size:14px}
+.section{padding:62px 0}.section-head{text-align:center;margin-bottom:34px}.section-head h2{font-family:serif;font-weight:400;font-size:clamp(30px,4vw,43px);letter-spacing:.1em;color:var(--green);margin:8px 0}.section-head p{color:var(--muted);font-size:14px;margin:0}
+.season-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.fruit{background:var(--paper);padding:12px 12px 20px;border:1px solid rgba(49,75,53,.08)}.fruit img{width:100%;height:260px;object-fit:cover;display:block}.fruit-body{padding:15px 8px 0}.fruit h3{font-size:20px;font-weight:500;letter-spacing:.08em;color:var(--green);margin:0 0 6px}.fruit p{font-size:13px;color:var(--muted);margin:0 0 14px;min-height:42px}
+.badge{display:inline-block;background:#e8ebdf;color:var(--green);padding:4px 10px;font-size:12px;margin-bottom:8px}.badge.closed{background:#eee8dd;color:#796c58}.fruit .button{width:100%}.fruit .button:disabled{background:#b8b8aa;cursor:not-allowed}
+.story{background:var(--green);color:var(--cream)}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}.story img{width:100%;height:370px;object-fit:cover}.story h2{font-family:serif;font-size:42px;line-height:1.2;font-weight:400;letter-spacing:.1em;margin:10px 0 20px}.story p{color:#e2e4d8;font-size:14px}.story .eyebrow{color:#d7bd80}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.info{padding:25px;background:rgba(255,253,248,.65);border-top:2px solid var(--olive)}.info b{display:block;color:var(--green);font-size:16px;margin-bottom:8px;letter-spacing:.06em}.info p{font-size:13px;color:var(--muted);margin:0}
+.order-panel{background:#e7dfcd;padding:30px;margin-top:25px;text-align:center}.order-panel h3{font-family:serif;color:var(--green);font-size:27px;font-weight:400;margin:0 0 8px}.order-panel p{color:var(--muted);font-size:14px}
+
+.contact-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:var(--paper);border:1px solid rgba(49,75,53,.08);padding:30px}
+.contact-copy h3{font-family:serif;color:var(--green);font-size:27px;font-weight:400;margin:0 0 8px}
+.contact-copy p{color:var(--muted);font-size:14px;margin:0}
+.contact-list{display:grid;gap:12px}
+.contact-link{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;background:#f5f0e6;border:1px solid var(--line);color:var(--green);font-size:14px;transition:background .2s}
+.contact-link:hover{background:#e8ebdf}
+.contact-link span{color:var(--muted);font-size:12px}
+.contact-note{margin:16px 0 0;color:var(--muted);font-size:12px}
+.line-id{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);color:var(--green);font-size:14px}
+.line-id small{color:var(--muted);font-size:12px}
+@media(max-width:760px){.contact-panel{grid-template-columns:1fr;gap:20px;padding:22px}}
+
+footer{padding:26px 0;color:var(--muted);font-size:12px}.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
+@media(max-width:760px){.wrap{width:min(100% - 28px,560px)}.nav{min-height:66px;align-items:flex-start;padding:13px 0;flex-direction:column;gap:7px}.brand{font-size:22px}.brand small{display:inline;margin-left:8px}nav{gap:15px;flex-wrap:wrap;font-size:12px}.hero{padding:25px 0 45px}.hero-grid,.story-grid{grid-template-columns:1fr;gap:24px}.hero-grid>div:first-child{order:1}.hero-image{order:0}.hero-image img{height:290px}h1{font-size:46px;margin:12px 0}.section{padding:45px 0}.season-grid{grid-template-columns:1fr 1fr;gap:12px}.fruit{padding:8px 8px 15px}.fruit img{height:170px}.fruit-body{padding:11px 4px 0}.fruit h3{font-size:17px}.fruit p{font-size:12px;min-height:56px}.fruit .button{font-size:12px;padding:10px 6px}.story img{height:270px}.story h2{font-size:34px}.info-grid{grid-template-columns:1fr}.footer-row{flex-direction:column;align-items:flex-start}}
+
+/* 新增購物車測試元件；原有版面樣式保持不變 */
+.cart-total{display:flex;justify-content:space-between;gap:16px;padding:18px 0 4px;border-top:1px solid var(--line);margin-top:16px;color:var(--green)}
+.cart-nav{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid var(--line);color:var(--green);font-size:12px;white-space:nowrap}
+.cart-count{display:inline-flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;border-radius:50%;background:var(--orange);color:white;font-size:12px}
+.demo-notice{margin:0 0 22px;padding:12px 16px;background:#f1e7d2;color:#66583d;font-size:13px;text-align:center}
+.fruit .spec-label{display:block;font-size:12px;color:var(--muted);margin:10px 0 5px}
+.fruit .spec-select{width:100%;padding:9px 8px;border:1px solid var(--line);background:var(--paper);color:var(--green);font:inherit;font-size:13px;margin-bottom:10px}
+.cart-section{padding:0 0 62px}
+.cart-box{background:var(--paper);border:1px solid rgba(49,75,53,.12);padding:24px}
+.cart-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cart-head h3{margin:0;color:var(--green);font-family:serif;font-size:27px;font-weight:400}
+.cart-items{display:grid;gap:0;margin-top:14px}
+.cart-item{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.cart-item-name{color:var(--green);font-weight:500}
+.cart-item small{display:block;color:var(--muted);font-size:12px}
+.qty-control{display:flex;align-items:center;gap:10px}
+.qty-control button,.remove-item{border:1px solid var(--line);background:transparent;color:var(--green);padding:5px 10px;cursor:pointer}
+.remove-item{color:#8b5c4b}
+.cart-empty{padding:24px 0;color:var(--muted);text-align:center;font-size:14px}
+.cart-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:20px}
+.cart-foot p{margin:0;color:var(--muted);font-size:13px}
+.cart-actions{display:flex;gap:10px;flex-wrap:wrap}
+.button.secondary{background:transparent;color:var(--green);border:1px solid var(--green)}
+.test-result{margin-top:18px;padding:18px;background:#e8ebdf;color:var(--green);font-size:14px}
+@media(max-width:760px){.cart-box{padding:16px}.cart-item{grid-template-columns:1fr auto;gap:8px}.cart-item .remove-item{grid-column:2;justify-self:end}.cart-item .qty-control{grid-column:2;grid-row:1}.cart-item-info{grid-column:1;grid-row:1}.cart-foot{align-items:flex-start;flex-direction:column}.cart-actions{width:100%}.cart-actions .button{flex:1}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#top">鮮果食季<small>FRESH FRUIT IN SEASON</small></a>
+<nav><a href="#season">產季公告</a><a href="#story">果園日常</a><a href="#shipping">訂購須知</a><a href="#contact">聯絡我們</a><a class="cart-nav" href="#cart">購物車 <span class="cart-count" id="cart-count">0</span></a></nav>
+</div></header>
+<main id="top">
+<section class="hero"><div class="wrap hero-grid">
+<div><div class="eyebrow">Fresh from our orchard</div><h1>跟著季節<br>吃當季的水果</h1>
+<p class="hero-subtitle">自家種植・當季鮮果・分享家人的心意</p>
+<p>每一季都有不同的風味，從果園採收到送到家，鮮果食季與你分享最好的滋味。</p>
+<a class="button" href="#season">看看當季水果　↗</a></div>
+<div class="hero-image"><img src="images/cover.jpeg" alt="鮮果食季柑橘與採果剪"><div class="image-note">當季鮮果・用心分享</div></div>
+</div></section>
+<section class="section" id="season"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Seasonal fruit calendar</div><h2>產季公告</h2><p>目前先展示果園與水果資訊；今年價格確認後，再開放線上選購。</p></div>
+<div class="demo-notice">購物車測試模式｜價格尚未公告，不會成立訂單或收款。</div>
+<div class="season-grid" id="fruit-grid"></div>
+<div class="order-panel"><h3 id="season-note-title">新一季水果資訊準備中</h3><p id="season-note">今年的商品規格、售價與免運條件尚未公布。價格確認後，這裡會更新最新資訊。</p><a class="button" href="#contact">詢問當季供應</a></div>
+</div></section>
+<section class="cart-section" id="cart"><div class="wrap"><div class="cart-box"><div class="cart-head"><h3>我的購物車</h3><span class="badge closed">測試模式・不會成立訂單</span></div><div id="cart-items" class="cart-items"><div class="cart-empty">購物車目前是空的，先從上方選擇想認識的水果吧。</div></div><div class="cart-foot"><p>商品價格、運費與總額尚未設定，因此本測試版不計算金額。</p><div class="cart-actions"><button class="button secondary" id="clear-cart" type="button">清空購物車</button><button class="button" id="test-checkout" type="button">模擬結帳</button></div></div><div id="test-result" class="test-result" hidden role="status"></div></div></div></section>
+<section class="section story" id="story"><div class="wrap story-grid">
+<img src="images/orchard.jpeg" alt="果園與果樹">
+<div><div class="eyebrow">From the orchard</div><h2>認識鮮果食季</h2>
+<p>鮮果食季的故事，從阿公開始種水果的那一天慢慢累積。一路走來，家人持續照顧果樹、迎接每一季的收成，也希望把自家種植的新鮮水果，分享給更多人。</p>
+<p>對我們來說，水果不只是收成，也是家人一代一代累積的心意。跟著季節，把果園裡的好滋味送到更多人的餐桌。</p></div>
+</div></section>
+<section class="section" id="shipping"><div class="wrap"><div class="section-head"><div class="eyebrow">Good to know</div><h2>訂購須知</h2><p>正式開放訂購後，請以網站最新公告為準。</p></div>
+<div class="info-grid"><div class="info"><b>01　產季供應</b><p>水果依產季與採收狀況供應，並非全年固定販售。</p></div><div class="info"><b>02　宅配到府</b><p>宅配運費與免運門檻待今年方案確認後公告。</p></div><div class="info"><b>03　訂單確認</b><p>開放訂購後，可在網站直接選購並填寫宅配資料；送出後由店家確認訂單及付款方式。</p></div></div>
+</div></section>
+<section class="section" id="contact"><div class="wrap"><div class="section-head"><div class="eyebrow">Stay in touch</div><h2>聯絡鮮果食季</h2><p>想詢問當季水果、採收時間或訂購消息，歡迎透過你平常使用的聯絡方式與我們聯繫。</p></div>
+<div class="contact-panel">
+<div class="contact-copy"><h3>期待與你分享當季好滋味</h3><p>想詢問當季水果、採收時間或訂購消息，歡迎透過社群私訊聯絡我們。</p><p class="contact-note">主要聯絡方式：LINE 私訊。Instagram 與 Facebook 也可以聯絡。</p></div>
+<div class="contact-list">
+<a class="contact-link" href="https://www.facebook.com/freshfruitinseason/?locale=zh_TW" target="_blank" rel="noopener noreferrer"><strong>Facebook 粉絲專頁</strong><span>前往頁面 ↗</span></a>
+<a class="contact-link" href="https://www.instagram.com/fruit_.fresh" target="_blank" rel="noopener noreferrer"><strong>Instagram</strong><span>前往頁面 ↗</span></a>
+<a class="contact-link" href="https://line.me/R/ti/p/@994xzxrr?oat_content+url#~" target="_blank" rel="noopener noreferrer"><strong>LINE</strong><span>私訊詢問 ↗</span></a>
+</div>
+</div></div></section>
+</main>
+<footer><div class="wrap footer-row"><span>© <span id="year"></span> 鮮果食季 FRESH FRUIT IN SEASON</span><span>新鮮現採，產地直送</span></div></footer>
+<script>
+/* 去年參考售價（均含運費），僅供網站測試；不會送出訂單、收集資料或收款。 */
+const discountRuleText = "商品總額滿 NT$2,000 折 NT$50；滿 NT$3,000 折 NT$100，每增加 NT$1,000 再折 NT$50。折扣依商品總額計算。";
+const fruits = [
+ {id:"sugar-tangerine", name:"砂糖橘", image:"images/sugar_tangerine.jpeg", status:"去年參考價・含運", detail:"以下為去年參考售價，非本季正式售價。", specs:[{name:"5斤",price:500},{name:"10斤",price:850}], testEnabled:true},
+ {id:"freemont", name:"佛利蒙", image:"images/freemont_tangerine.jpeg", status:"去年參考價・含運", detail:"以下為去年參考售價，非本季正式售價。", specs:[{name:"5斤",price:500},{name:"10斤",price:850}], testEnabled:true},
+ {id:"orange", name:"柳丁", image:"images/liu_ding.jpeg", status:"去年參考價・含運", detail:"以下為去年參考售價，非本季正式售價。", specs:[{name:"10斤",price:500},{name:"20斤",price:800},{name:"30斤",price:1180}], testEnabled:true},
+ {id:"king-citrus", name:"帝王柑", image:"images/diwang.jpg", status:"去年參考價・含運", detail:"10斤禮盒裝先參考去年10斤價格；非本季正式售價。", specs:[{name:"10斤禮盒裝",price:850},{name:"20斤",price:1500}], testEnabled:true},
+ {id:"lemon", name:"檸檬", image:"images/lemon.jpg", status:"去年參考價・含運", detail:"以下為去年參考售價，非本季正式售價。", specs:[{name:"10斤",price:600},{name:"20斤",price:1100}], testEnabled:true},
+ {id:"pomelo", name:"文旦", image:"images/pomelo.jpg", status:"暫無供應", detail:"目前暫無供應，請留意最新公告。", specs:[], testEnabled:false}
+];
+
+const cart = {};
+const fruitGrid = document.getElementById("fruit-grid");
+const cartItems = document.getElementById("cart-items");
+const cartCount = document.getElementById("cart-count");
+const testResult = document.getElementById("test-result");
+
+fruitGrid.innerHTML = fruits.map(f => `
+ <article class="fruit">
+  <img src="${f.image}" alt="${f.name}">
+  <div class="fruit-body">
+   <span class="badge closed">${f.status}</span><h3>${f.name}</h3><p>${f.detail}</p>
+   ${f.testEnabled ? `
+    <label class="spec-label" for="spec-${f.id}">商品規格</label>
+    <select class="spec-select" id="spec-${f.id}" data-spec="${f.id}">
+     ${f.specs.map(spec => `<option value="${spec.name}">${spec.name}｜NT$${spec.price.toLocaleString("en-US")}（含運）</option>`).join("")}
+    </select>
+    <button class="button" type="button" data-add="${f.id}">加入購物車（測試）</button>
+   ` : `<button class="button" type="button" disabled>目前暫無供應</button>`}
+  </div>
+ </article>
+`).join("");
+
+function renderCart() {
+ const entries = Object.entries(cart).filter(([, item]) => item.qty > 0);
+ cartCount.textContent = entries.reduce((sum, [, item]) => sum + item.qty, 0);
+ if (!entries.length) {
+  cartItems.innerHTML = '<div class="cart-empty">購物車目前是空的，先從上方選擇想認識的水果吧。</div>';
+  return;
+ }
+ cartItems.innerHTML = entries.map(([key, item]) => {
+  const fruit = fruits.find(f => f.id === item.fruitId);
+  const specInfo = fruit.specs.find(s => s.name === item.spec);
+  const unitPrice = specInfo ? specInfo.price : 0;
+  return `<div class="cart-item">
+   <div class="cart-item-info"><span class="cart-item-name">${fruit.name}・${item.spec}</span><small>單價 NT$${unitPrice.toLocaleString("en-US")}（含運）・小計 NT$${(unitPrice * item.qty).toLocaleString("en-US")}</small></div>
+   <div class="qty-control"><button type="button" aria-label="減少數量" data-minus="${key}">−</button><span>${item.qty}</span><button type="button" aria-label="增加數量" data-plus="${key}">＋</button></div>
+   <button type="button" class="remove-item" data-remove="${key}">移除</button>
+  </div>`;
+ }).join("");
+ const subtotal = entries.reduce((sum, [, item]) => {
+  const fruit = fruits.find(f => f.id === item.fruitId);
+  const specInfo = fruit.specs.find(s => s.name === item.spec);
+  return sum + (specInfo ? specInfo.price * item.qty : 0);
+ }, 0);
+ const discount = subtotal >= 2000 ? Math.floor(subtotal / 2000) * 50 : 0;
+ const total = subtotal - discount;
+ cartItems.insertAdjacentHTML("beforeend", `
+  <div class="cart-total"><span>商品總額（含運）</span><strong>NT$${subtotal.toLocaleString("en-US")}</strong></div>
+  <div class="cart-total"><span>滿額折扣（每滿 $2,000 折 $50）</span><strong>− NT$${discount.toLocaleString("en-US")}</strong></div>
+  <div class="cart-total"><strong>折扣後總額</strong><strong>NT$${total.toLocaleString("en-US")}</strong></div>
+ `);
+}
+
+fruitGrid.addEventListener("click", event => {
+ const button = event.target.closest("[data-add]");
+ if (!button) return;
+ const fruit = fruits.find(f => f.id === button.dataset.add);
+ if (!fruit || !fruit.testEnabled) return;
+ const select = fruitGrid.querySelector(`[data-spec="${fruit.id}"]`);
+ const spec = select.value;
+ const key = `${fruit.id}__${spec}`;
+ if (!cart[key]) cart[key] = {fruitId:fruit.id, spec, qty:0};
+ cart[key].qty += 1;
+ testResult.hidden = false;
+ testResult.textContent = `已將「${fruit.name}・${spec}」加入測試購物車。價格尚未公告，這不是正式訂單。`;
+ renderCart();
+});
+
+cartItems.addEventListener("click", event => {
+ const minus = event.target.closest("[data-minus]");
+ const plus = event.target.closest("[data-plus]");
+ const remove = event.target.closest("[data-remove]");
+ if (minus) {
+  const key = minus.dataset.minus;
+  cart[key].qty -= 1;
+  if (cart[key].qty <= 0) delete cart[key];
+ } else if (plus) {
+  cart[plus.dataset.plus].qty += 1;
+ } else if (remove) {
+  delete cart[remove.dataset.remove];
+ } else return;
+ renderCart();
+ testResult.hidden = true;
+});
+
+document.getElementById("clear-cart").addEventListener("click", () => {
+ Object.keys(cart).forEach(key => delete cart[key]);
+ renderCart();
+ testResult.hidden = false;
+ testResult.textContent = "測試購物車已清空。沒有建立任何訂單。";
+});
+
+document.getElementById("test-checkout").addEventListener("click", () => {
+ const count = Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+ testResult.hidden = false;
+ const subtotal = Object.values(cart).reduce((sum, item) => {
+  const fruit = fruits.find(f => f.id === item.fruitId);
+  const specInfo = fruit.specs.find(s => s.name === item.spec);
+  return sum + (specInfo ? specInfo.price * item.qty : 0);
+ }, 0);
+ const discount = subtotal >= 2000 ? Math.floor(subtotal / 2000) * 50 : 0;
+ const total = subtotal - discount;
+ testResult.textContent = count
+  ? `模擬結帳：共 ${count} 件測試商品，商品總額 NT$${subtotal.toLocaleString("en-US")}，滿額折扣 NT$${discount.toLocaleString("en-US")}，折扣後金額（含運）NT$${total.toLocaleString("en-US")}。以上為去年參考價測試，沒有建立訂單或收款。`
+  : "購物車目前是空的，請先加入測試商品。";
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+renderCart();
+</script>
+</body></html>
