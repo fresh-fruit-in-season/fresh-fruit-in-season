@@ -19,6 +19,7 @@ h1{font-family:serif;font-weight:400;font-size:clamp(36px,4.5vw,60px);line-heigh
 .section{padding:62px 0}.section-head{text-align:center;margin-bottom:34px}.section-head h2{font-family:serif;font-weight:400;font-size:clamp(30px,4vw,43px);letter-spacing:.1em;color:var(--green);margin:8px 0}.section-head p{color:var(--muted);font-size:14px;margin:0}
 .season-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.fruit{background:var(--paper);padding:12px 12px 20px;border:1px solid rgba(49,75,53,.08)}.fruit img{width:100%;height:260px;object-fit:cover;display:block}.fruit-body{padding:15px 8px 0}.fruit h3{font-size:20px;font-weight:500;letter-spacing:.08em;color:var(--green);margin:0 0 6px}.fruit p{font-size:13px;color:var(--muted);margin:0 0 14px;min-height:42px}
 .badge{display:inline-block;background:#e8ebdf;color:var(--green);padding:4px 10px;font-size:12px;margin-bottom:8px}.badge.closed{background:#eee8dd;color:#796c58}.fruit .button{width:100%}.fruit .button:disabled{background:#b8b8aa;cursor:not-allowed}
+.story-photo .photo-caption{margin:12px 0 0;color:#f5f0e6;font-size:14px;line-height:1.8;text-align:left}
 .story{background:var(--green);color:var(--cream)}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}.story img{width:100%;height:370px;object-fit:cover}.story h2{font-family:serif;font-size:42px;line-height:1.2;font-weight:400;letter-spacing:.1em;margin:10px 0 20px}.story p{color:#e2e4d8;font-size:14px}.story .eyebrow{color:#d7bd80}
 .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.info{padding:25px;background:rgba(255,253,248,.65);border-top:2px solid var(--olive)}.info b{display:block;color:var(--green);font-size:16px;margin-bottom:8px;letter-spacing:.06em}.info p{font-size:13px;color:var(--muted);margin:0}
 .order-panel{background:#e7dfcd;padding:30px;margin-top:25px;text-align:center}.order-panel h3{font-family:serif;color:var(--green);font-size:27px;font-weight:400;margin:0 0 8px}.order-panel p{color:var(--muted);font-size:14px}
@@ -69,7 +70,7 @@ footer{padding:26px 0;color:var(--muted);font-size:12px}.footer-row{display:flex
 <body>
 <header><div class="wrap nav">
 <a class="brand" href="#top">鮮果食季<small>FRESH FRUIT IN SEASON</small></a>
-<nav><a href="#season">產季公告</a><a href="#story">果園日常</a><a href="#shipping">訂購須知</a><a href="#contact">聯絡我們</a><a class="cart-nav" href="#cart">購物車 <span class="cart-count" id="cart-count">0</span></a></nav>
+<nav><a href="#season">當季水果</a><a href="#story">果園日常</a><a href="#shipping">訂購須知</a><a href="#contact">聯絡我們</a><a class="cart-nav" href="#cart">購物車 <span class="cart-count" id="cart-count">0</span></a></nav>
 </div></header>
 <main id="top">
 <section class="hero"><div class="wrap hero-grid">
@@ -80,14 +81,17 @@ footer{padding:26px 0;color:var(--muted);font-size:12px}.footer-row{display:flex
 <div class="hero-image"><img src="images/cover.jpeg" alt="鮮果食季柑橘與採果剪"><div class="image-note">當季鮮果・用心分享</div></div>
 </div></section>
 <section class="section" id="season"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Seasonal fruit calendar</div><h2>產季公告</h2><p>目前先展示果園與水果資訊；今年價格確認後，再開放線上選購。</p></div>
-<div class="demo-notice">購物車測試模式｜價格尚未公告，不會成立訂單或收款。</div>
+<div class="section-head"><div class="eyebrow">Seasonal fruits</div><h2>當季水果</h2><p>跟著季節認識果園水果，實際供應情形依產季公告。</p></div>
+
 <div class="season-grid" id="fruit-grid"></div>
-<div class="order-panel"><h3 id="season-note-title">新一季水果資訊準備中</h3><p id="season-note">今年的商品規格、售價與免運條件尚未公布。價格確認後，這裡會更新最新資訊。</p><a class="button" href="#contact">詢問當季供應</a></div>
+
 </div></section>
-<section class="cart-section" id="cart"><div class="wrap"><div class="cart-box"><div class="cart-head"><h3>我的購物車</h3><span class="badge closed">測試模式・不會成立訂單</span></div><div id="cart-items" class="cart-items"><div class="cart-empty">購物車目前是空的，先從上方選擇想認識的水果吧。</div></div><div class="cart-foot"><p>商品價格、運費與總額尚未設定，因此本測試版不計算金額。</p><div class="cart-actions"><button class="button secondary" id="clear-cart" type="button">清空購物車</button><button class="button" id="test-checkout" type="button">模擬結帳</button></div></div><div id="test-result" class="test-result" hidden role="status"></div></div></div></section>
+<section class="cart-section" id="cart"><div class="wrap"><div class="cart-box"><div class="cart-head"><h3>我的購物車</h3></div><div id="cart-items" class="cart-items"><div class="cart-empty">購物車目前是空的，先從上方選擇想認識的水果吧。</div></div><div class="cart-foot"><p>商品價格皆含運費；滿額折扣依商品總額計算。目前尚未開放線上正式下單，請透過聯絡方式洽詢。</p><div class="cart-actions"><button class="button secondary" id="clear-cart" type="button">清空購物車</button><button class="button" id="test-checkout" type="button">確認購物清單</button></div></div><div id="test-result" class="test-result" hidden role="status"></div></div></div></section>
 <section class="section story" id="story"><div class="wrap story-grid">
+<div class="story-photo">
 <img src="images/orchard.jpeg" alt="果園與果樹">
+<p class="photo-caption">圖中為果園主理人－賴爸爸</p>
+</div>
 <div><div class="eyebrow">From the orchard</div><h2>認識鮮果食季</h2>
 <p>鮮果食季的故事，從阿公開始種水果的那一天慢慢累積。一路走來，家人持續照顧果樹、迎接每一季的收成，也希望把自家種植的新鮮水果，分享給更多人。</p>
 <p>對我們來說，水果不只是收成，也是家人一代一代累積的心意。跟著季節，把果園裡的好滋味送到更多人的餐桌。</p></div>
@@ -107,14 +111,12 @@ footer{padding:26px 0;color:var(--muted);font-size:12px}.footer-row{display:flex
 </main>
 <footer><div class="wrap footer-row"><span>© <span id="year"></span> 鮮果食季 FRESH FRUIT IN SEASON</span><span>新鮮現採，產地直送</span></div></footer>
 <script>
-/* 去年參考售價（均含運費），僅供網站測試；不會送出訂單、收集資料或收款。 */
-const discountRuleText = "商品總額滿 NT$2,000 折 NT$50；滿 NT$3,000 折 NT$100，每增加 NT$1,000 再折 NT$50。折扣依商品總額計算。";
 const fruits = [
- {id:"sugar-tangerine", name:"砂糖橘", image:"images/sugar_tangerine.jpeg", status:"去年參考價・含運", detail:"以下為去年參考售價，非本季正式售價。", specs:[{name:"5斤",price:500},{name:"10斤",price:850}], testEnabled:true},
- {id:"freemont", name:"佛利蒙", image:"images/freemont_tangerine.jpeg", status:"去年參考價・含運", detail:"以下為去年參考售價，非本季正式售價。", specs:[{name:"5斤",price:500},{name:"10斤",price:850}], testEnabled:true},
- {id:"orange", name:"柳丁", image:"images/liu_ding.jpeg", status:"去年參考價・含運", detail:"以下為去年參考售價，非本季正式售價。", specs:[{name:"10斤",price:500},{name:"20斤",price:800},{name:"30斤",price:1180}], testEnabled:true},
- {id:"king-citrus", name:"帝王柑", image:"images/diwang.jpg", status:"去年參考價・含運", detail:"10斤禮盒裝先參考去年10斤價格；非本季正式售價。", specs:[{name:"10斤禮盒裝",price:850},{name:"20斤",price:1500}], testEnabled:true},
- {id:"lemon", name:"檸檬", image:"images/lemon.jpg", status:"去年參考價・含運", detail:"以下為去年參考售價，非本季正式售價。", specs:[{name:"10斤",price:600},{name:"20斤",price:1100}], testEnabled:true},
+ {id:"sugar-tangerine", name:"砂糖橘", image:"images/sugar_tangerine.jpeg", status:"含運價", detail:"", specs:[{name:"5斤",price:500},{name:"10斤",price:850}], testEnabled:true},
+ {id:"freemont", name:"佛利蒙", image:"images/freemont_tangerine.jpeg", status:"含運價", detail:"", specs:[{name:"5斤",price:500},{name:"10斤",price:850}], testEnabled:true},
+ {id:"orange", name:"柳丁", image:"images/liu_ding.jpeg", status:"含運價", detail:"", specs:[{name:"10斤",price:500},{name:"20斤",price:800},{name:"30斤",price:1180}], testEnabled:true},
+ {id:"king-citrus", name:"帝王柑", image:"images/diwang.jpg", status:"含運價", detail:"", specs:[{name:"10斤禮盒裝",price:850},{name:"20斤",price:1500}], testEnabled:true},
+ {id:"lemon", name:"檸檬", image:"images/lemon.jpg", status:"含運價", detail:"", specs:[{name:"10斤",price:600},{name:"20斤",price:1100}], testEnabled:true},
  {id:"pomelo", name:"文旦", image:"images/pomelo.jpg", status:"暫無供應", detail:"目前暫無供應，請留意最新公告。", specs:[], testEnabled:false}
 ];
 
@@ -182,7 +184,7 @@ fruitGrid.addEventListener("click", event => {
  if (!cart[key]) cart[key] = {fruitId:fruit.id, spec, qty:0};
  cart[key].qty += 1;
  testResult.hidden = false;
- testResult.textContent = `已將「${fruit.name}・${spec}」加入測試購物車。價格尚未公告，這不是正式訂單。`;
+ testResult.textContent = `已將「${fruit.name}・${spec}」加入購物車。`;
  renderCart();
 });
 
@@ -207,7 +209,7 @@ document.getElementById("clear-cart").addEventListener("click", () => {
  Object.keys(cart).forEach(key => delete cart[key]);
  renderCart();
  testResult.hidden = false;
- testResult.textContent = "測試購物車已清空。沒有建立任何訂單。";
+ testResult.textContent = "購物車已清空。";
 });
 
 document.getElementById("test-checkout").addEventListener("click", () => {
@@ -221,7 +223,7 @@ document.getElementById("test-checkout").addEventListener("click", () => {
  const discount = subtotal >= 2000 ? Math.floor(subtotal / 2000) * 50 : 0;
  const total = subtotal - discount;
  testResult.textContent = count
-  ? `模擬結帳：共 ${count} 件測試商品，商品總額 NT$${subtotal.toLocaleString("en-US")}，滿額折扣 NT$${discount.toLocaleString("en-US")}，折扣後金額（含運）NT$${total.toLocaleString("en-US")}。以上為去年參考價測試，沒有建立訂單或收款。`
+  ? `購物清單：共 ${count} 件商品，商品總額 NT$${subtotal.toLocaleString("en-US")}，滿額折扣 NT$${discount.toLocaleString("en-US")}，折扣後金額（含運）NT$${total.toLocaleString("en-US")}。目前尚未開放線上正式下單，請透過聯絡方式洽詢。`
   : "購物車目前是空的，請先加入測試商品。";
 });
 
